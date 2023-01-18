@@ -68,7 +68,7 @@ foreach ($boats as $boat) {
 
         $product = $stripe->products->create(['name' => $boat->name, 'images' => [$boat->image]]);
         $price = $stripe->prices->create(
-            ['product' => $product->id, 'unit_amount' => $boat->price.'00', 'currency' => 'gbp']
+            ['product' => $product->id, 'unit_amount' => $boat->price*100, 'currency' => 'gbp']
         );
 
         $checkout_session = \Stripe\Checkout\Session::create([
