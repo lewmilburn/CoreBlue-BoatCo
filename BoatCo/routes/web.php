@@ -39,6 +39,7 @@ foreach ($boats as $boat) {
      * View a specific boat.
      *
      * @returns view
+     *
      * @param $brands array The brands data
      * @param $boat object The boat data
      * @param $boatDetails object The boat details data
@@ -48,7 +49,8 @@ foreach ($boats as $boat) {
     });
 
     /**
-     * Buy a specific boat
+     * Buy a specific boat.
+     *
      * @uses $boat The boat information.
      */
     Route::get('/buy/'.$boat->id, function () use ($boat) {
@@ -89,7 +91,8 @@ foreach ($boats as $boat) {
 }
 
 /**
- * The cancelled purchase page
+ * The cancelled purchase page.
+ *
  * @returns view
  */
 Route::get('/buy/cancel', function () {
@@ -97,7 +100,8 @@ Route::get('/buy/cancel', function () {
 });
 
 /**
- * The successful purchase page
+ * The successful purchase page.
+ *
  * @returns view
  */
 Route::get('/buy/success', function () {
