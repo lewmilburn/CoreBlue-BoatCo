@@ -49,3 +49,8 @@
 /* Table */
 .th { @apply border font-bold }
 .td { @apply border; }
+
+/* Payment Result */
+.payment-result {
+    @apply text-center max-w-2xl w-full mx-auto;
+}

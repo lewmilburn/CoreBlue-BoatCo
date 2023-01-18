@@ -40,15 +40,17 @@ foreach ($boats as $boat) {
         // Don’t submit any personally identifiable information in requests made with this key.
         // Sign in to see your own test API key embedded in code samples.
 
-        $stripe = new \Stripe\StripeClient(KEY_STRIPE);
+        $stripe = new \Stripe\StripeClient($_ENV['APP_STRIPEKEY']);
+
+        \Stripe\Stripe::setApiKey($_ENV['APP_STRIPEKEY']);
 
         header('Content-Type: application/json');
 
-        $YOUR_DOMAIN = 'https://localhost/';
+        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
 
-        $product = $stripe->products->create(['name' => 'T-shirt', 'images' => [$boat->image]]);
+        $product = $stripe->products->create(['name' => $boat->name, 'images' => [$boat->image]]);
         $price = $stripe->prices->create(
-            ['product' => $product->id, 'unit_amount' => 1, 'currency' => 'gbp']
+            ['product' => $product->id, 'unit_amount' => $boat->price.'00', 'currency' => 'gbp']
         );
 
         $checkout_session = \Stripe\Checkout\Session::create([
@@ -68,9 +70,9 @@ foreach ($boats as $boat) {
 }
 
 Route::get('/buy/cancel', function () {
-    return redirect('/');
+    return view('buycancel',);
 });
 
 Route::get('/buy/success', function () {
-    return redirect('/');
+    return view('/buysuccess');
 });
