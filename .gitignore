@@ -16,6 +16,7 @@ yarn-error.log
 
 /BoatCo/storage/*.key
 /BoatCo/.env
+/BoatCo/.env.example
 /BoatCo/Homestead.yaml
 /BoatCo/Homestead.json
 /.vagrant
