@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Headers */
+.nav {
+    @apply dark:bg-neutral-800 px-6 py-4 shadow-lg mb-2;
+}
+.nav-logo {
+    @apply text-xl font-bold;
+}
+
+/* Main */
+.main {
+    @apply dark:bg-neutral-800 px-6 py-4;
+}
+
+/* Product Grid */
+.product-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+.product-item {
+    @apply px-3 py-2 rounded-md shadow-lg hover:shadow-xl bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-700 dark:hover:bg-neutral-600 transition duration-200;
+}
+
+.item-header {
+    @apply text-xl font-bold;
+}
+.item-price {
+    @apply text-xl
+}
+
+/* Boat info page */
+.infopage-header {
+    @apply text-5xl font-bold;
+}
