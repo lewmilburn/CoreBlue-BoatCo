@@ -33,4 +33,44 @@ foreach ($boats as $boat) {
     Route::get('/boat/'.$boat->id, function () use ($boat, $brands, $boatDetails) {
         return view('boat', ['boat' => $boat, 'brands' => $brands, 'details' => $boatDetails]);
     });
+
+    Route::get('/buy/'.$boat->id, function () use ($boat) {
+        $price = $boat->price;
+        // This is a public sample test API key.
+        // Don’t submit any personally identifiable information in requests made with this key.
+        // Sign in to see your own test API key embedded in code samples.
+
+        $stripe = new \Stripe\StripeClient(KEY_STRIPE);
+
+        header('Content-Type: application/json');
+
+        $YOUR_DOMAIN = 'https://localhost/';
+
+        $product = $stripe->products->create(['name' => 'T-shirt', 'images' => [$boat->image]]);
+        $price = $stripe->prices->create(
+            ['product' => $product->id, 'unit_amount' => 1, 'currency' => 'gbp']
+        );
+
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'line_items' => [[
+                # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
+                'price' => $price->id,
+                'quantity' => 1,
+            ]],
+            'mode' => 'payment',
+            'success_url' => $YOUR_DOMAIN . '/buy/success',
+            'cancel_url' => $YOUR_DOMAIN . '/buy/cancel',
+        ]);
+
+        header("HTTP/1.1 303 See Other");
+        return redirect($checkout_session->url);
+    });
 }
+
+Route::get('/buy/cancel', function () {
+    return redirect('/');
+});
+
+Route::get('/buy/success', function () {
+    return redirect('/');
+});

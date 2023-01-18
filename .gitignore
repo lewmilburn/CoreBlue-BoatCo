@@ -1,0 +1,22 @@
+vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+/BoatCo/app/storage/
+
+# Laravel 5 & Lumen specific
+/BoatCo/public/storage
+/BoatCo/public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+/BoatCo/public_html/storage
+/BoatCo/public_html/hot
+
+/BoatCo/storage/*.key
+/BoatCo/.env
+/BoatCo/Homestead.yaml
+/BoatCo/Homestead.json
+/.vagrant
+/BoatCo/.phpunit.result.cache
