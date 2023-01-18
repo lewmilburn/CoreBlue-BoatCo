@@ -8,14 +8,14 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="dark:bg-neutral-800 dark:text-white">
         @include ('layout.navigation')
 
         <main class="main">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
                 <div>
                     <div class="flex">
-                        <h2 class="infopage-subheader mt-8 flex-grow">
+                        <h2 class="infopage-subheader flex-grow">
                             Filter
                         </h2>
                         <button onclick="toggleFilterMenu();" class="btn-blue lg:hidden h-10 align-bottom">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="grid grid-cols-3 gap-2 hidden lg:block" id="btnContainer">
                         <p class="item-price mt-4">Price:</p>
-                        <div class="col-span-2">
+                        <div class="col-span-2 grid grid-cols-2 gap-1">
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-vhigh')">£100,000+</button>
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-high')">£50,000 - £99,999</button>
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-med')">£25,000 - £49,999</button>
@@ -32,7 +32,7 @@
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-vlow')">£0 - £9,999</button>
                         </div>
                         <p class="item-price mt-4">Age:</p>
-                        <div class="col-span-2">
+                        <div class="col-span-2 grid grid-cols-2 gap-1">
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-vnew')">2020 - 2023</button>
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-new')">2015 - 2019</button>
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-med')">2010 - 2014</button>
@@ -44,7 +44,10 @@
                 </div>
 
                 <div class="lg:col-span-3">
-                    <div class="product-grid mb-8" id="boat-cards">
+                    <div class="product-grid mb-8 relative" id="boat-cards">
+                        <h2 class="infopage-subheader flex-grow absolute top-8 left-0 z-1">
+                            None found.
+                        </h2>
                     </div>
 
                     <button onclick="get()" class="hidden btn-blue" id="moreBoats">

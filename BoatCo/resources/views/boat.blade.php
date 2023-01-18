@@ -8,7 +8,7 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="dark:bg-neutral-800 dark:text-white">
         @include ('layout.navigation')
 
         <main class="main">
@@ -57,14 +57,30 @@
                         <td class="th">Fuel Type</td>
                         <td class="td">{{ $details->fuel }}</td>
                     </tr>
+                    <tr>
+                        <td class="th">Propulsion</td>
+                        <td class="td">{{ $details->hp }}hp</td>
+                    </tr>
+                    <tr>
+                        <td class="th">Length</td>
+                        <td class="td">{{ $details->length }}m</td>
+                    </tr>
+                    <tr>
+                        <td class="th">Hull Material</td>
+                        <td class="td">{{ $details->hull_material }}</td>
+                    </tr>
                 </table>
 
-                <h2 class="infopage-subheader mt-8">
-                    Similar Boats
+                <h2 class="infopage-subheader mt-8 mb-2">
+                    Featured Boats
                 </h2>
+
+                <div class="product-grid mb-8" id="boat-cards">
+                </div>
             </div>
         </main>
 
+        <script src="{{ asset('js/homepage.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>

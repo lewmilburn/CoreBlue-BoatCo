@@ -1,3 +1,4 @@
+// Variables
 let current = 0;
 let boats = [];
 let newBoats = [];
@@ -76,6 +77,11 @@ function dataLoaded() {
         addCard(newBoats[i]);
     }
 
+    // If it crashes for some reason, try again.
+    if (current === 0) {
+        get();
+    }
+
     if (current === 16) {
         document.getElementById('moreBoats').classList.remove('hidden');
     } else {
@@ -101,12 +107,9 @@ function addCard(boat) {
     else if (boat.year_manufactured >= 2005) { yearfilter = 'year-old'; }
     else if (boat.year_manufactured >= 2000) { yearfilter = 'year-vold'; }
 
-    document.getElementById('boat-cards').innerHTML += `<a href="/boat/`+boat.id+`" class="block product-item filterDiv `+pricefilter+` `+yearfilter+`">
+    document.getElementById('boat-cards').innerHTML += `<a href="/boat/`+boat.id+`" class="z-10 block product-item filterDiv `+pricefilter+` `+yearfilter+`">
                     <img class="w-full mb-4" src="`+boat.image+`" alt="`+boat.name+`">
-                    <div class="flex space-x-2">
-                        <h2 class="item-header flex-grow">`+boat.name+`</h2>
-                        <p>`+brands[boat.brand_id-1].name+`</p>
-                    </div>
+                    <h2 class="item-header flex-grow">`+boat.name+`</h2>
                     <p class="item-price">£`+boat.price+`</p>
                     <p>Manufactured in `+boat.year_manufactured+`</p>
                     <p>

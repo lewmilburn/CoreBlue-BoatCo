@@ -35,14 +35,25 @@ foreach ($boats as $boat) {
         $boatDetails = $bd; // Fixes a weird bug
     }
 
-    // Boat details page
+    /**
+     * View a specific boat.
+     *
+     * @returns view
+     * @param $brands array The brands data
+     * @param $boat object The boat data
+     * @param $boatDetails object The boat details data
+     */
     Route::get('/boat/'.$boat->id, function () use ($boat, $brands, $boatDetails) {
         return view('boat', ['boat' => $boat, 'brands' => $brands, 'details' => $boatDetails]);
     });
 
-    // Checkout system
+    /**
+     * Buy a specific boat
+     * @uses $boat The boat information.
+     */
     Route::get('/buy/'.$boat->id, function () use ($boat) {
         $price = $boat->price;
+
         // This is a public sample test API key.
         // Don’t submit any personally identifiable information in requests made with this key.
         // Sign in to see your own test API key embedded in code samples.
@@ -77,12 +88,18 @@ foreach ($boats as $boat) {
     });
 }
 
-// Purchase cancelled page
+/**
+ * The cancelled purchase page
+ * @returns view
+ */
 Route::get('/buy/cancel', function () {
     return view('buycancel');
 });
 
-// Purchase successful page
+/**
+ * The successful purchase page
+ * @returns view
+ */
 Route::get('/buy/success', function () {
     return view('/buysuccess');
 });

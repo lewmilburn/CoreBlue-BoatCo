@@ -2,7 +2,7 @@
     Searches for matching items that have the requested class attached.
  */
 function filterSelection(c) {
-        var x, i;
+        let x, i;
         x = document.getElementsByClassName("filterDiv");
         if (c == "all") {
             for (i = 0; i < x.length; i++) {
@@ -20,7 +20,7 @@ function filterSelection(c) {
     Adds the requested class to the element.
      */
     function addClass(element, name) {
-        var i, arr1, arr2;
+        let i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
@@ -32,7 +32,7 @@ function filterSelection(c) {
     Removes the requested class from the element.
      */
     function removeClass(element, name) {
-        var i, arr1, arr2;
+        let i, arr1, arr2;
         arr1 = element.className.split(" ");
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {

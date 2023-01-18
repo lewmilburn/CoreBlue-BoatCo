@@ -8,7 +8,7 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="dark:bg-neutral-800 dark:text-white">
         @include ('layout.navigation')
 
         <main class="main w-full">
