@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +31,14 @@ Route::get('/boats', function (Request $request) {
         }
     } else {
         return response()->json([
-            'status' => 400
+            'status' => 400,
         ]);
     }
 });
 
 /**
- * Returns all boat brands from the database in JSON
+ * Returns all boat brands from the database in JSON.
+ *
  * @returns array The response data
  */
 Route::get('/brands', function () {
@@ -51,7 +52,9 @@ $boats = DB::select('select * from Boats');
 foreach ($boats as $boat) {
     /**
      * Gets the requested boat from the database.
+     *
      * @returns array The response data
+     *
      * @var $boat \App\Boat The boat object
      */
     Route::get('/boats/'.$boat->id, function () use ($boat) {
