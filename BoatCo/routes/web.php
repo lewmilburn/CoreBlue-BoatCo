@@ -55,22 +55,23 @@ foreach ($boats as $boat) {
 
         $checkout_session = \Stripe\Checkout\Session::create([
             'line_items' => [[
-                # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-                'price' => $price->id,
+                // Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
+                'price'    => $price->id,
                 'quantity' => 1,
             ]],
-            'mode' => 'payment',
-            'success_url' => $YOUR_DOMAIN . '/buy/success',
-            'cancel_url' => $YOUR_DOMAIN . '/buy/cancel',
+            'mode'        => 'payment',
+            'success_url' => $YOUR_DOMAIN.'/buy/success',
+            'cancel_url'  => $YOUR_DOMAIN.'/buy/cancel',
         ]);
 
-        header("HTTP/1.1 303 See Other");
+        header('HTTP/1.1 303 See Other');
+
         return redirect($checkout_session->url);
     });
 }
 
 Route::get('/buy/cancel', function () {
-    return view('buycancel',);
+    return view('buycancel');
 });
 
 Route::get('/buy/success', function () {

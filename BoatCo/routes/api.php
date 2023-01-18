@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +24,7 @@ Route::get('/boats', function () use ($boats) {
 
 Route::get('/brands', function () {
     $brands = DB::select('select * from Brands');
+
     return $brands;
 });
 
