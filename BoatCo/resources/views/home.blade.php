@@ -25,21 +25,21 @@
                     <div class="grid grid-cols-3 gap-2 hidden lg:block" id="btnContainer">
                         <p class="item-price mt-4">Price:</p>
                         <div class="col-span-2 grid grid-cols-2 gap-1">
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-vhigh')">£100,000+</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-high')">£50,000 - £99,999</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-med')">£25,000 - £49,999</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-low')">£10,000 - £24,999</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-vlow')">£0 - £9,999</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('price-vhigh')">£100,000+</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('price-high')">£50,000 - £99,999</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('price-med')">£25,000 - £49,999</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('price-low')">£10,000 - £24,999</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('price-vlow')">£0 - £9,999</button>
                         </div>
                         <p class="item-price mt-4">Age:</p>
                         <div class="col-span-2 grid grid-cols-2 gap-1">
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-vnew')">2020 - 2023</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-new')">2015 - 2019</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-med')">2010 - 2014</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-old')">2005 - 2009</button>
-                            <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-vold')">2000 - 2004</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('year-vnew')">2020 - 2023</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('year-new')">2015 - 2019</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('year-med')">2010 - 2014</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('year-old')">2005 - 2009</button>
+                            <button class="btn btn-blue w-full" onclick="filterSelection('year-vold')">2000 - 2004</button>
                         </div>
-                        <button class="btn btn-blue w-full mt-4 col-span-3" onclick="filterSelection('all')">Clear Filters</button>
+                        <button class="btn btn-blue w-full col-span-3 mt-4" onclick="filterSelection('all')">Clear Filters</button>
                     </div>
                 </div>
 
