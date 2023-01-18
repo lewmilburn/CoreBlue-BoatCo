@@ -14,26 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Get the data from the database
 $boats = DB::select('select * from Boats');
 $brands = DB::select('select * from Brands');
 
+// Homepage
 Route::get('/', function () use ($boats, $brands) {
     return view('home', ['boats' => $boats, 'brands' => $brands]);
 });
 
+// Redirect to homepage: /boat link contains no data
 Route::get('/boat', function () {
     return redirect('/');
 });
 
+// Boat details page
 foreach ($boats as $boat) {
     $boatsDetails = DB::select('select * from BoatsDetails where id = '.$boat->id);
     foreach ($boatsDetails as $bd) {
-        $boatDetails = $bd;
+        $boatDetails = $bd; // Fixes a weird bug
     }
+
+    // Boat details page
     Route::get('/boat/'.$boat->id, function () use ($boat, $brands, $boatDetails) {
         return view('boat', ['boat' => $boat, 'brands' => $brands, 'details' => $boatDetails]);
     });
 
+    // Checkout system
     Route::get('/buy/'.$boat->id, function () use ($boat) {
         $price = $boat->price;
         // This is a public sample test API key.
@@ -60,7 +67,7 @@ foreach ($boats as $boat) {
                 'quantity' => 1,
             ]],
             'mode'        => 'payment',
-            'success_url' => $YOUR_DOMAIN.'/buy/success',
+            'success_url' => $YOUR_DOMAIN.'/buy/success', // URLs for success and cancel pgae
             'cancel_url'  => $YOUR_DOMAIN.'/buy/cancel',
         ]);
 
@@ -70,10 +77,12 @@ foreach ($boats as $boat) {
     });
 }
 
+// Purchase cancelled page
 Route::get('/buy/cancel', function () {
     return view('buycancel');
 });
 
+// Purchase successful page
 Route::get('/buy/success', function () {
     return view('/buysuccess');
 });
