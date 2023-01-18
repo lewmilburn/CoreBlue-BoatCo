@@ -47,10 +47,15 @@
 }
 
 /* Table */
-.th { @apply border font-bold }
-.td { @apply border; }
+.th { @apply border font-bold px-2 py-1 }
+.td { @apply border px-2 py-1 }
 
 /* Payment Result */
 .payment-result {
     @apply text-center max-w-2xl w-full mx-auto;
+}
+
+/* Inputs */
+.input {
+    @apply border rounded-md px-2 py-1;
 }
