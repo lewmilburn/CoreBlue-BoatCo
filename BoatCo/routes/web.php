@@ -26,7 +26,11 @@ Route::get('/boat', function () {
 });
 
 foreach ($boats as $boat) {
-    Route::get('/boat/'.$boat->id, function () use ($boat, $brands) {
-        return view('boat', ['boat' => $boat, 'brands' => $brands]);
+    $boatsDetails = DB::select('select * from BoatsDetails where id = '.$boat->id);
+    foreach ($boatsDetails as $bd) {
+        $boatDetails = $bd;
+    }
+    Route::get('/boat/'.$boat->id, function () use ($boat, $brands, $boatDetails) {
+        return view('boat', ['boat' => $boat, 'brands' => $brands, 'details' => $boatDetails]);
     });
 }

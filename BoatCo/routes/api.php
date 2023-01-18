@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
+$boats = DB::select('select * from Boats LIMIT 25');
+
+Route::get('/boats', function () use ($boats) {
+    foreach ($boats as $boat) {
+        return $boats;
+    }
 });
+
+Route::get('/brands', function () {
+    $brands = DB::select('select * from Brands');
+    return $brands;
+});
+
+foreach ($boats as $boat) {
+    Route::get('/boats/'.$boat->id, function () use ($boat) {
+        return $boat;
+    });
+}

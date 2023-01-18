@@ -1,3 +1,5 @@
 <nav class="nav">
-    <h1 class="nav-logo">BoatCo</h1>
+    <a href="/">
+        <h1 class="nav-logo">BoatCo</h1>
+    </a>
 </nav>

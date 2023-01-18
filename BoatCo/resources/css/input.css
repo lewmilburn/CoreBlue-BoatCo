@@ -34,3 +34,18 @@
 .infopage-header {
     @apply text-5xl font-bold;
 }
+.infopage-subheader {
+    @apply text-3xl font-bold;
+}
+
+/* Buttons */
+.btn {
+    @apply px-3 py-2 rounded-lg shadow-lg hover:shadow-xl transition duration-200 cursor-pointer;
+}
+.btn-blue {
+    @apply btn bg-blue-500 text-white hover:bg-blue-400;
+}
+
+/* Table */
+.th { @apply border font-bold }
+.td { @apply border; }
