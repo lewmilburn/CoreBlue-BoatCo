@@ -21,7 +21,7 @@ Route::get('/', function () use ($boats, $brands) {
     return view('home', ['boats' => $boats, 'brands' => $brands]);
 });
 
-Route::get('/boat', function() {
+Route::get('/boat', function () {
     return redirect('/');
 });
 
