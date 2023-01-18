@@ -42,3 +42,12 @@ function filterSelection(c) {
         }
         element.className = arr1.join(" ");
     }
+
+    function toggleFilterMenu() {
+        let menu = document.getElementById('btnContainer').classList;
+        if (menu.contains('hidden')) {
+            menu.remove('hidden');
+        } else {
+            menu.add('hidden');
+        }
+    }

@@ -4,20 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>BoatCo</title>
+        <title>Boat Co</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        @include ('layout.navigation');
+        @include ('layout.navigation')
 
         <main class="main">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
                 <div>
-                    <h2 class="infopage-subheader mt-8">
-                        Filter
-                    </h2>
-                    <div class="grid grid-cols-3 gap-2" id="btnContainer">
+                    <div class="flex">
+                        <h2 class="infopage-subheader mt-8 flex-grow">
+                            Filter
+                        </h2>
+                        <button onclick="toggleFilterMenu();" class="btn-blue lg:hidden h-10 align-bottom">
+                            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 hidden lg:block" id="btnContainer">
                         <p class="item-price mt-4">Price:</p>
                         <div class="col-span-2">
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-vhigh')">£100,000+</button>
@@ -26,8 +31,6 @@
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-low')">£10,000 - £24,999</button>
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('price-vlow')">£0 - £9,999</button>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2" id="btnContainer">
                         <p class="item-price mt-4">Age:</p>
                         <div class="col-span-2">
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-vnew')">2020 - 2023</button>
@@ -36,8 +39,8 @@
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-old')">2005 - 2009</button>
                             <button class="btn btn-blue w-full mt-4" onclick="filterSelection('year-vold')">2000 - 2004</button>
                         </div>
+                        <button class="btn btn-blue w-full mt-4 col-span-3" onclick="filterSelection('all')">Clear Filters</button>
                     </div>
-                    <button class="btn btn-blue w-full mt-4" onclick="filterSelection('all')">Clear Filters</button>
                 </div>
 
                 <div class="lg:col-span-3">

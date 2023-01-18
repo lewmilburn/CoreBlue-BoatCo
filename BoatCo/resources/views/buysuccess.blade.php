@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Payment Cancelled - BoatCo</title>
+        <title>Payment Cancelled - Boat Co</title>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
